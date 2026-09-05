@@ -1,0 +1,154 @@
+[
+  {
+    "file": "box.wav",
+    "sha256": "e562511a67ac79d120096e9497d04e28e6fdd27b2a0548de9ce458a07ca58776",
+    "seconds": 0.23832,
+    "sampleRate": 44100,
+    "channels": 1,
+    "bytes": 21098
+  },
+  {
+    "file": "chassis-1.wav",
+    "sha256": "53097d34da3fc9ac489db318936951442b5375bc62b8083e4bf88ccc28ab08ee",
+    "seconds": 0.64902,
+    "sampleRate": 44100,
+    "channels": 1,
+    "bytes": 57322
+  },
+  {
+    "file": "chassis-2.wav",
+    "sha256": "fe062dbbac84b7f7721fe55d11e715d5e27eeb19b44ca0aaab579a9482bee5de",
+    "seconds": 0.53594,
+    "sampleRate": 44100,
+    "channels": 1,
+    "bytes": 47348
+  },
+  {
+    "file": "chassis-3.wav",
+    "sha256": "34616268e180801e9917021b3cd52753e89f2cad8c8bab3789e452aa4270ac26",
+    "seconds": 0.45748,
+    "sampleRate": 44100,
+    "channels": 1,
+    "bytes": 40428
+  },
+  {
+    "file": "cloth.wav",
+    "sha256": "834dfb2941d855aa1d06271688eca6ced70e2c7cf4a863048eebad1f02a4741b",
+    "seconds": 0.5268,
+    "sampleRate": 44100,
+    "channels": 1,
+    "bytes": 46542
+  },
+  {
+    "file": "engine-idle.wav",
+    "sha256": "1ef871d809e2db6a9c7a6dd892c876471549b45c2f8eedbeb24b2d6fd935f27a",
+    "seconds": 0.86408,
+    "sampleRate": 44100,
+    "channels": 1,
+    "bytes": 76354
+  },
+  {
+    "file": "engine-load.wav",
+    "sha256": "d9fa6b2ff2aa37d34d9f67371efca32ab89709b146746d07c52efa4d390e1614",
+    "seconds": 4.0,
+    "sampleRate": 44100,
+    "channels": 1,
+    "bytes": 352878
+  },
+  {
+    "file": "grass-1.wav",
+    "sha256": "3fb7b8e615406cc1558e771ae6ec31afe814e8fce32e6a16995f86aa84d65720",
+    "seconds": 0.77467,
+    "sampleRate": 44100,
+    "channels": 1,
+    "bytes": 68404
+  },
+  {
+    "file": "grass-2.wav",
+    "sha256": "6ca01e4720d031f23fef8a60bbe1a01f1a6ce0bf9fc4696a003069a62fd4858c",
+    "seconds": 0.6707,
+    "sampleRate": 44100,
+    "channels": 1,
+    "bytes": 59234
+  },
+  {
+    "file": "metal-1.wav",
+    "sha256": "f48782b66a3a91cd311a6dbfb7b709c7c3a54714f71573ac2ca9be639eb5c2ac",
+    "seconds": 0.16476,
+    "sampleRate": 44100,
+    "channels": 1,
+    "bytes": 14610
+  },
+  {
+    "file": "metal-2.wav",
+    "sha256": "283072037178fb25e2f55e26c513747d38ab2b010fb8135f03cd615a66a43a38",
+    "seconds": 0.35637,
+    "sampleRate": 44100,
+    "channels": 1,
+    "bytes": 31510
+  },
+  {
+    "file": "metal-3.wav",
+    "sha256": "fd044e8508b5fa17bad4b960583515d0bf61ee1818cde4c41fcccc172a8dc1d0",
+    "seconds": 0.1144,
+    "sampleRate": 44100,
+    "channels": 1,
+    "bytes": 10168
+  },
+  {
+    "file": "shell-1.wav",
+    "sha256": "a7d66161c69b83a5e6174af9a3574169fd7e78f15b23517d145cb6ed57e83cee",
+    "seconds": 0.60927,
+    "sampleRate": 44100,
+    "channels": 1,
+    "bytes": 53816
+  },
+  {
+    "file": "shell-2.wav",
+    "sha256": "f543b84c327864e0c0becd21c282bdb0327406f830788e4e94c07194c0c8cf0b",
+    "seconds": 0.61621,
+    "sampleRate": 44100,
+    "channels": 1,
+    "bytes": 54428
+  },
+  {
+    "file": "shell-3.wav",
+    "sha256": "5386cffa7cb1df4bdaf7856b55992c7145ff0bcf45527cf5b727920d3f096dbd",
+    "seconds": 0.51524,
+    "sampleRate": 44100,
+    "channels": 1,
+    "bytes": 45522
+  },
+  {
+    "file": "tyres.wav",
+    "sha256": "43e47ce872d539ed43bf8df4af128138887df262dab28f71a4e19091c21243e5",
+    "seconds": 3.0,
+    "sampleRate": 44100,
+    "channels": 1,
+    "bytes": 264678
+  },
+  {
+    "file": "waves.wav",
+    "sha256": "d5465610521a70aae7cd309ba52af66cb978694387c47cda32e0aa47bdbe296c",
+    "seconds": 3.84,
+    "sampleRate": 32000,
+    "channels": 2,
+    "bytes": 491564
+  },
+  {
+    "file": "wood-1.wav",
+    "sha256": "820fd87262ee47db5fc83ba74d47e1815f5182a539c11d560edc9e5b7ced3e4b",
+    "seconds": 0.32977,
+    "sampleRate": 44100,
+    "channels": 1,
+    "bytes": 29164
+  },
+  {
+    "file": "wood-2.wav",
+    "sha256": "6a0732c4d0cb4a538b628e258e4aa1d64423906e899e5f5d66748633873e2cc0",
+    "seconds": 0.32977,
+    "sampleRate": 44100,
+    "channels": 1,
+    "bytes": 29164
+  }
+]
