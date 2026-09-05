@@ -4,6 +4,12 @@
 
 OpenKart est un fan game de kart 3D créé de zéro avec TypeScript, Three.js et Vite. Référence directe : Mario Kart 8 Deluxe, avec Mario, Luigi, Peach et Yoshi, une île originale et un téléphone comme manette. Les modèles et illustrations sont construits en code dans le projet.
 
+![Les quatre pilotes d’OpenKart : Mario, Luigi, Peach et Yoshi](docs/images/pilotes.svg)
+
+![Tracé du circuit Île des Aiguilles : 1,99 km, trois tours et six pilotes](docs/images/circuit.svg)
+
+*Illustrations générées depuis les portraits et le tracé du jeu. Les raccourcis cachés ne sont pas dévoilés.*
+
 ## Jouer
 
 Node.js 22 ou version plus récente.
