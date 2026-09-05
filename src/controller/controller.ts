@@ -22,7 +22,7 @@ export class Controller {
   private latency=0;
   private wakeLock:WakeLockSentinel|null=null;
   constructor(private readonly root:HTMLElement) {
-    document.title='OpenKart Astra — Manette';root.className='controller';
+    document.title='OpenKart — Manette';root.className='controller';
     const room=new URLSearchParams(location.search).get('room')?.toUpperCase()??'';
     if(!validRoom(room)){this.pair();return;}
     this.room=room;this.render();this.connect();this.bind();
@@ -45,13 +45,13 @@ export class Controller {
   }
   private get<E extends HTMLElement=HTMLElement>(selector:string):E {return this.root.querySelector<E>(selector)!;}
   private pair(message='Recopie les 6 caractères affichés dans le jeu.') {
-    this.root.innerHTML=`<section class="phone-pair"><div class="wordmark">OPENKART<span> ASTRA</span></div><h1>À toi le volant.</h1><p id="pair-message"></p><form id="pair-form"><label for="code">CODE DE COURSE</label><input id="code" maxlength="6" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="ABC234" required><button class="start-button">CONNECTER →</button></form><small>Ouvre le jeu sur ton ordinateur et choisis « Mon téléphone ».</small></section>`;
+    this.root.innerHTML=`<section class="phone-pair"><div class="wordmark">OPEN<span>KART</span></div><h1>À toi le volant.</h1><p id="pair-message"></p><form id="pair-form"><label for="code">CODE DE COURSE</label><input id="code" maxlength="6" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="ABC234" required><button class="start-button">CONNECTER →</button></form><small>Ouvre le jeu sur ton ordinateur et choisis « Mon téléphone ».</small></section>`;
     this.get('#pair-message').textContent=message;
     this.get('#pair-form').addEventListener('submit',e=>{e.preventDefault();const code=this.get<HTMLInputElement>('#code').value.toUpperCase().trim();if(!validRoom(code)){this.get('#pair-message').textContent='Le code contient 6 lettres ou chiffres. Vérifie-le sur le jeu.';return;}const url=new URL(location.href);url.searchParams.set('room',code);location.assign(url);});
   }
   private render() {
     this.root.innerHTML=`
-      <header class="controller-head"><div class="wordmark">OPENKART<span> ASTRA</span></div><span class="phone-session">${this.room}</span><span id="link-state" role="status">CONNEXION…</span></header>
+      <header class="controller-head"><div class="wordmark">OPEN<span>KART</span></div><span class="phone-session">${this.room}</span><span id="link-state" role="status">CONNEXION…</span></header>
       <div id="activate-overlay" class="activate-overlay"><div><span class="eyebrow">PRÊT À PRENDRE LE VOLANT ?</span><h1>À toi de jouer.</h1><p>Garde le jeu ouvert sur l’ordinateur.<br>Deux doigts suffisent : une direction et les gaz.</p><button id="activate" class="start-button">ACTIVER LA MANETTE ↗</button><small>Plus confortable avec le téléphone en paysage.</small></div></div>
       <main class="controller-grid"><section class="steering"><div class="controller-label">DIRECTION <span id="steering-mode">TACTILE</span></div><div class="steering-gauge"><i id="steer-dot"></i></div><div class="direction-buttons"><button data-action="left" aria-label="Tourner à gauche">←<small>GAUCHE</small></button><button data-action="right" aria-label="Tourner à droite">→<small>DROITE</small></button></div><div class="sensor-tools"><button id="gyro">GYROSCOPE</button><button id="center" hidden>RECENTRER</button></div><p id="sensor-status" role="status">Maintiens une flèche pour tourner.</p></section>
       <section class="pedal-area"><div class="controller-readout"><div><b id="phone-speed">000</b><span>KM/H</span></div><div class="phone-race-meta"><small id="phone-race">EN ATTENTE DU DÉPART</small><small id="phone-inventory">PIÈCES 0/10</small></div></div><div class="utility-buttons"><button data-action="item">◎ OBJET</button><button data-action="backthrow" aria-label="Maintenir pour protéger, relâcher pour lancer vers l’arrière">↓ ARRIÈRE</button><button data-action="reset">↺ PISTE</button><button id="phone-pause">Ⅱ PAUSE</button></div><div class="pedal-buttons"><button data-action="brake" class="brake">FREIN<small>RALENTIR / RECULER</small></button><button data-action="drift" class="drift">DRIFT<small>RELÂCHER = TURBO</small></button><button data-action="gas" class="gas">GAZ<small>ACCÉLÉRER</small></button></div></section></main>

@@ -113,7 +113,7 @@ export class FestivalScenery {
     }
     this.add(this.cube,'#e63542',arch,[0,8.35,0],[19.2,2.4,1.2]);
     this.add(this.cube,'#ffd438',arch,[0,9.65,0],[20.5,.3,1.4]);
-    const label=this.panel('OPENKART ASTRA',18,1.9,'#e63542');label.position.set(0,8.3,-.62);arch.add(label);
+    const label=this.panel('OPENKART',18,1.9,'#e63542');label.position.set(0,8.3,-.62);arch.add(label);
     const signals=new T.Group();signals.position.copy(c.position(0));signals.rotation.y=c.at(0).heading;this.root.add(signals);
     for(let k=-2;k<=2;k++){
       const light=new T.Mesh(this.sphere,new T.MeshStandardMaterial({color:'#303655',emissive:'#000000',roughness:.25}));

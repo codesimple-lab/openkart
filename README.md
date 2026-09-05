@@ -1,16 +1,16 @@
-# OpenKart Astra
+# OpenKart
 
-**Circuit : Île des Aiguilles** · [codesimple-lab/openkart-astra](https://github.com/codesimple-lab/openkart-astra)
+**Circuit : Île des Aiguilles** · [codesimple-lab/openkart](https://github.com/codesimple-lab/openkart)
 
-OpenKart Astra est un fan game de kart 3D créé de zéro avec TypeScript, Three.js et Vite. Référence directe : Mario Kart 8 Deluxe, avec Mario, Luigi, Peach et Yoshi, une île originale et un téléphone comme manette. Les modèles et illustrations sont construits en code dans le projet.
+OpenKart est un fan game de kart 3D créé de zéro avec TypeScript, Three.js et Vite. Référence directe : Mario Kart 8 Deluxe, avec Mario, Luigi, Peach et Yoshi, une île originale et un téléphone comme manette. Les modèles et illustrations sont construits en code dans le projet.
 
 ## Jouer
 
 Node.js 22 ou version plus récente.
 
 ```sh
-git clone https://github.com/codesimple-lab/openkart-astra.git
-cd openkart-astra
+git clone https://github.com/codesimple-lab/openkart.git
+cd openkart
 npm ci
 npm run dev
 ```

@@ -1,8 +1,8 @@
-# Validation OpenKart Astra — 5 septembre 2026
+# Validation OpenKart — 5 septembre 2026
 
 La passe actuelle rend les passages discrets et supprime les annonces de conduite répétitives. Vérification finale : **132 tests réussis dans 19 fichiers**, puis **compilation TypeScript et build Vite réussis**. Vite conserve son avertissement de taille pour le lot Three.js.
 
-Cette passe supprime le deltaplane, rétablit une chaussée continue et ajoute deux branches pavées. Les trajectoires, collisions, objets, appuis des pneus et surfaces des branches font l’objet de vérifications spécifiques. Le relais WebSocket a été revérifié pour la publication OpenKart Astra : appairage, commandes simultanées, tirs arrière, appuis brefs, pause, télémétrie, reconnexion et rejet des messages invalides.
+Cette passe supprime le deltaplane, rétablit une chaussée continue et ajoute deux branches pavées. Les trajectoires, collisions, objets, appuis des pneus et surfaces des branches font l’objet de vérifications spécifiques. Le relais WebSocket a été revérifié pour la publication OpenKart : appairage, commandes simultanées, tirs arrière, appuis brefs, pause, télémétrie, reconnexion et rejet des messages invalides.
 
 ## Conduite et objets
 
