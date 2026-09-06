@@ -1,8 +1,16 @@
-# Validation OpenKart — 5 septembre 2026
+# Validation OpenKart — 6 septembre 2026
 
-La passe actuelle rend les passages discrets et supprime les annonces de conduite répétitives. Vérification finale : **132 tests réussis dans 19 fichiers**, puis **compilation TypeScript et build Vite réussis**. Vite conserve son avertissement de taille pour le lot Three.js.
+La passe actuelle rend les passages discrets et supprime les annonces de conduite répétitives. Vérification finale : **145 tests réussis dans 21 fichiers**, puis **compilation TypeScript et build Vite réussis**. Vite conserve son avertissement de taille pour le lot Three.js.
 
 Cette passe supprime le deltaplane, rétablit une chaussée continue et ajoute deux branches pavées. Les trajectoires, collisions, objets, appuis des pneus et surfaces des branches font l’objet de vérifications spécifiques. Le relais WebSocket a été revérifié pour la publication OpenKart : appairage, commandes simultanées, tirs arrière, appuis brefs, pause, télémétrie, reconnexion et rejet des messages invalides.
+
+## Manette et gyroscope — 6 septembre
+
+Activation des capteurs directement depuis un clic, explication HTTP/HTTPS, calibration stable de 300 ms, projection de la gravité dans le repère de l’écran, zone neutre de 2°, filtre de 65 ms, sensibilités 16°/24°/34° et inversion. Les essais couvrent portrait, paysages gauche/droite, angle circulaire, données absentes, téléphone à plat, bruit au neutre, recalage et perte des mesures. Les événements d’orientation et de permission des tests DOM sont synthétiques ; aucun téléphone physique n’est simulé comme validé.
+
+Huit tests DOM vérifient les appuis simultanés, le relâchement hors bouton, le retour du cache de navigation, une connexion OPEN sans réponse, les permissions acceptées/refusées, l’explication HTTPS et la conversion des événements en commandes analogiques. Une interruption neutralise les commandes ; une demande distincte `suspend` évite qu’une seconde pause automatique relance la course.
+
+Les relais réels passent en HTTP sur 5180 et en HTTPS sur 5181, avec contrôle exclusif, remplacement d’une ancienne connexion par le même identifiant d’onglet, conservation de la nouvelle connexion lors de la fermeture de l’ancienne et reconnexion du poste de jeu. Le test TLS accepte uniquement le certificat local sur loopback lorsque l’option de test est explicite ; aucun réglage de confiance du navigateur ou du système n’a été modifié. L’approbation du certificat et des capteurs sur le téléphone reste manuelle.
 
 ## Conduite et objets
 

@@ -69,7 +69,7 @@ export class Game {
     this.ui.on('#view-course',()=>{this.overview=!this.overview;this.ui.get('#view-course').innerHTML=this.overview?'REVOIR MON KART <span>↙</span>':'VOIR LE CIRCUIT <span>↗</span>';});
     root.querySelectorAll<HTMLButtonElement>('[data-pilot]').forEach(b=>b.addEventListener('click',()=>{this.pilot=Number(b.dataset.pilot);this.ui.selectPilot(this.pilot);this.race.reset(this.pilot);this.buildKarts();}));
     void this.ui.pairing(this.phone.room).catch(()=>{this.ui.get('#connection').textContent='Le relais local est indisponible. Lance le projet avec npm run dev.';});
-    this.phone.onAction=action=>{if(action==='start'&&(this.phase==='garage'||this.phase==='finish')){this.phoneMode=true;this.ui.mode(true);this.start();}else if(action==='pause'||action==='start')this.togglePause();};
+    this.phone.onAction=action=>{if(action==='suspend'){this.pause('La manette a été interrompue. Reprends quand elle est prête.');return;}if(action==='start'&&(this.phase==='garage'||this.phase==='finish')){this.phoneMode=true;this.ui.mode(true);this.start();}else if(action==='pause'||action==='start')this.togglePause();};
     this.phone.onChange=()=>this.ui.connection(this.phone.connected,this.phone.active);
     window.addEventListener('resize',()=>{this.resize();this.renderer.render(this.world.scene,this.camera);});
     window.addEventListener('blur',()=>{if(!this.phoneMode&&!this.inspection.frozen)this.pause('La fenêtre du jeu a perdu le focus.');});
@@ -102,13 +102,13 @@ export class Game {
   }
   private pause(reason='La course t’attend.') {
     if(this.phase!=='race'&&this.phase!=='countdown')return;
-    this.priorPhase=this.phase;this.phase='paused';this.keyboard.clear();this.race.cancelItemGesture();this.ui.visible('#pause',true);this.ui.get('#pause-reason').textContent=reason;
+    this.priorPhase=this.phase;this.phase='paused';this.keyboard.clear();this.phone.clearControls();this.race.cancelItemGesture();this.ui.visible('#pause',true);this.ui.get('#pause-reason').textContent=reason;
     this.ui.visible('#fallback',this.phoneMode&&!this.phone.active);
   }
   private togglePause() {
     if(this.phase==='paused') {
       if(this.phoneMode&&!this.phone.active){this.ui.get('#pause-reason').textContent='Reconnecte la manette, ou continue au clavier.';this.ui.visible('#fallback',true);return;}
-      this.phase=this.priorPhase;this.ui.visible('#pause',false);this.audio.start();this.last=performance.now();
+      this.phone.clearControls();this.phase=this.priorPhase;this.ui.visible('#pause',false);this.audio.start();this.last=performance.now();
     }else this.pause();
   }
   private frame(time:number) {

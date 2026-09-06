@@ -28,22 +28,40 @@ Ouvrir **http://localhost:5180** sur l’ordinateur. Le rendu nécessite WebGL 2
 1. Brancher l’ordinateur et le téléphone au **même Wi-Fi**.
 2. Dans le garage, choisir **Mon téléphone**.
 3. Scanner le QR code affiché avec le téléphone.
-4. Toucher **Activer la manette**, puis **Lancer la course**.
+4. Choisir **Piloter en inclinant** sur HTTPS, ou **Utiliser les boutons**, puis **Lancer la course**.
 5. Tenir une flèche et **GAZ** simultanément pour accélérer. **FREIN** ralentit, puis permet de reculer. **DRIFT** charge un turbo qui se déclenche quand on relâche. **OBJET** utilise les pouvoirs. Pour une banane ou une carapace, maintenir protège derrière le kart, relâcher lance devant. **ARRIÈRE** fait le même geste avec un tir arrière.
 
 Aucune installation sur le téléphone. Le mode tactile fonctionne sur HTTP, en portrait ou en paysage. Le paysage laisse plus de place aux doigts. L’adresse IP est détectée automatiquement ; `DELTA_LAN_IP=192.168.x.x npm run dev` permet de la préciser sur un ordinateur avec plusieurs interfaces réseau. Le serveur doit rester ouvert et le port 5180 accessible depuis le réseau local.
 
 Si la manette ne transmet plus de commandes pendant 600 ms, la course se met en pause. Reconnecter et reprendre, ou choisir **Continuer au clavier**. Garder l’onglet du jeu visible sur l’ordinateur.
 
-### Gyroscope optionnel
+### Piloter avec le gyroscope
 
 ```sh
-npm run dev:https
+npm run dev:phone
 ```
 
-Cette variante utilise un certificat de développement local. Ouvrir le lien HTTPS sur les deux appareils et autoriser le certificat local si le navigateur le demande. Sur la manette, toucher **GYROSCOPE** et autoriser les capteurs. **RECENTRER** règle la position neutre. Le tactile reste disponible si le téléphone ne fournit pas d’orientation.
+Ouvrir **https://localhost:5181** sur l’ordinateur, choisir **Mon téléphone**, puis scanner **le QR code de cette page HTTPS**. Le serveur HTTP sur 5180 et ce serveur HTTPS possèdent des sessions distinctes. Le QR HTTP ne permet pas d’utiliser les capteurs sur le téléphone.
 
-Le gyroscope dépend du téléphone, du navigateur et de ses permissions. L’appairage, les commandes et les reconnexions ont été testés localement ; la validation sur un téléphone physique reste à effectuer.
+Sur le téléphone :
+
+1. Ouvrir le lien dans Safari ou Chrome et choisir **PILOTER EN INCLINANT**.
+2. Autoriser l’accès au mouvement lorsque le navigateur le demande.
+3. Tenir le téléphone en paysage, légèrement redressé comme un volant, et rester immobile environ une demi-seconde.
+4. Incliner pour tourner, maintenir **GAZ** pour accélérer et **DRIFT** pour déraper.
+5. Utiliser **RECENTRER** pour changer la position neutre ; choisir une sensibilité **Douce**, **Normale** ou **Vive**. **Inverser** change le sens de direction si nécessaire.
+
+Le calcul tient compte des deux orientations paysage et du portrait. Une petite zone neutre et un filtre atténuent les tremblements. Un téléphone posé complètement à plat ne fournit pas un angle de volant stable : le redresser. Les flèches tactiles restent utilisables ; **TACTILE** désactive les capteurs.
+
+Cette variante utilise un certificat de développement local incluant l’adresse réseau du Mac. Sa validation éventuelle dans le navigateur reste manuelle. Un certificat non approuvé peut empêcher le navigateur d’accorder l’accès aux capteurs. Pour un hébergement distant, utiliser HTTPS avec un certificat reconnu et conserver le relais WebSocket. [Conditions d’accès aux capteurs](https://developer.mozilla.org/en-US/docs/Web/API/DeviceOrientationEvent/requestPermission_static).
+
+`npm run dev:https` reste disponible sur 5180 à la place du serveur HTTP. `OPENKART_LAN_IP` permet de préciser l’interface réseau ; l’ancien nom `DELTA_LAN_IP` reste accepté.
+
+### Reprise après interruption
+
+Les boutons sont relâchés lors d’une perte de focus, d’une mise en veille ou d’une pause. Le retour à la page rétablit la connexion et recale le gyroscope ; la course attend une reprise explicite. Le même onglet peut remplacer son ancienne connexion bloquée sans attendre son expiration. Une autre manette ne peut pas l’évincer. Une connexion sans réponse ou accumulant des commandes est recréée, sans rejouer les anciens appuis.
+
+Si le capteur s’interrompt, la direction revient au neutre et les gaz sont coupés ; la course reçoit une demande de pause. Les tests automatisés couvrent les commandes, les permissions et ces interruptions. La validation sur un téléphone physique reste à effectuer.
 
 ## Contenu
 
